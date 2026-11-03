@@ -32,9 +32,9 @@
 		<true/>
 	</dict>
 	<key>NSCameraUsageDescription</key>
-	<string>Mesajlara ve görevlere fotoğraf eklemek için kamera kullanılır.</string>
+	<string>Mesajlara fotoğraf eklemek ve görüntülü arama için kamera kullanılır.</string>
 	<key>NSMicrophoneUsageDescription</key>
-	<string>Sesli mesaj kaydetmek ve video kaydına ses eklemek için mikrofon kullanılır.</string>
+	<string>Sesli mesaj ve sesli/görüntülü arama için mikrofon kullanılır.</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>Mesajlara ve görevlere galeriden fotoğraf eklemek için kullanılır.</string>
 	<key>UIApplicationSceneManifest</key>
