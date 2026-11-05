@@ -15,6 +15,12 @@ subprojects {
     val newSubprojectBuildDir: Directory = newBuildDir.dir(project.name)
     project.layout.buildDirectory.value(newSubprojectBuildDir)
 }
+// Eski compileSdk ile gelen eklentiler (agora_rtc_engine: 31) yeni androidx ile derlenemiyor
+subprojects {
+    afterEvaluate {
+        extensions.findByType<com.android.build.gradle.LibraryExtension>()?.compileSdk = 36
+    }
+}
 subprojects {
     project.evaluationDependsOn(":app")
 }

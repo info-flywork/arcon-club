@@ -33,6 +33,10 @@
 	</dict>
 	<key>NSCameraUsageDescription</key>
 	<string>Mesajlara fotoğraf eklemek ve görüntülü arama için kamera kullanılır.</string>
+	<key>NSFaceIDUsageDescription</key>
+	<string>Kilitli sohbetleri açmak için Face ID kullanılır.</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>Sohbete konumunu göndermek için kullanılır.</string>
 	<key>NSMicrophoneUsageDescription</key>
 	<string>Sesli mesaj ve sesli/görüntülü arama için mikrofon kullanılır.</string>
 	<key>NSPhotoLibraryUsageDescription</key>
