@@ -25,6 +25,16 @@ subprojects {
     project.evaluationDependsOn(":app")
 }
 
+// camera_android_camerax + CameraX 1.5.3: derlemede CallbackToFutureAdapter (concurrent-futures) aranıyor
+subprojects {
+    if (name == "camera_android_camerax") {
+        pluginManager.withPlugin("com.android.library") {
+            dependencies.add("compileOnly", "androidx.concurrent:concurrent-futures:1.2.0")
+            dependencies.add("implementation", "androidx.concurrent:concurrent-futures:1.2.0")
+        }
+    }
+}
+
 tasks.register<Delete>("clean") {
     delete(rootProject.layout.buildDirectory)
 }

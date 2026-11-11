@@ -1,17 +1,30 @@
-# arcon_club
+# ARCON Club (mobil)
 
-A new Flutter project.
+ARCON panelinin mobil uygulaması (iOS + Android, Flutter). Menü ve modüller ARCON sunucusundan (`https://arconai.net/app/`) gelir; ARCONNECT, ARCON AI ve ARCON TO-DO uygulama içinde, diğer modüller WebView'da açılır.
 
-## Getting Started
+Bu repo **tek başına çalışır**: uygulamanın ekranlarının çoğu `packages/arcon_core` klasöründeki ortak çekirdektedir ve repoyla birlikte gelir.
 
-This project is a starting point for a Flutter application.
+## Çalıştırma
 
-A few resources to get you started if this is your first Flutter project:
+```bash
+flutter pub get
+flutter run
+```
 
-- [Learn Flutter](https://docs.flutter.dev/get-started/learn-flutter)
-- [Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Flutter learning resources](https://docs.flutter.dev/reference/learning-resources)
+- Android APK: `flutter build apk --release` → `build/app/outputs/flutter-apk/app-release.apk`
+- iOS: `ios/Runner.xcworkspace` Xcode'da açılır → Product › Archive → Distribute App › App Store Connect
+- Her yeni sürümde `pubspec.yaml` içindeki `version:` satırında `+` sonrasındaki build numarası bir artırılır.
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Klasörler
+
+| Klasör | İçerik |
+| --- | --- |
+| `lib/main.dart` | Uygulamanın girişi (uygulama anahtarı `club`, başlık) |
+| `packages/arcon_core/` | Ortak çekirdek: giriş, modül menüsü, ARCONNECT (sohbet, arama), ARCON AI, bildirimler |
+| `android/`, `ios/` | Platform ayarları (paket kimliği `net.arconai.arconClub`) |
+
+## Notlar
+
+- `packages/arcon_core`, ARCONNECT uygulamasıyla ortak kullanılan çekirdeğin bir kopyasıdır (asıl kaynak: `info-flywork/original-arconnect` reposunda `packages/arcon_core`). ARCONNECT tarafında yapılan değişiklikler Club'a otomatik gelmez; gerektiğinde bu klasör o reponun güncel haliyle değiştirilir.
+- Android derlemesi için `android/build.gradle.kts` içinde kamera eklentisine `androidx.concurrent:concurrent-futures` eklendi (CameraX 1.5.3 ile gerekli); silinmemeli.
+- Sunucu adresi derlerken değiştirilebilir: `flutter run --dart-define=ARCON_API_BASE=http://127.0.0.1:8088/`
