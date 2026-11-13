@@ -1,0 +1,45 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "arcon-club",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "arcon-club (profile mode)",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "profile"
+        },
+        {
+            "name": "arcon-club (release mode)",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "release"
+        },
+        {
+            "name": "arcon_core",
+            "cwd": "packages/arcon_core",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "arcon_core (profile mode)",
+            "cwd": "packages/arcon_core",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "profile"
+        },
+        {
+            "name": "arcon_core (release mode)",
+            "cwd": "packages/arcon_core",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "release"
+        }
+    ]
+}

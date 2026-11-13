@@ -1,5 +1,5 @@
 name: arcon_club
-description: "ARCON Club mobil uygulaması (ARCON ortak çekirdeği üzerinde)."
+description: "ARCON Club mobil uygulaması."
 # The following line prevents the package from being accidentally published to
 # pub.dev using `flutter pub publish`. This is preferred for private packages.
 publish_to: 'none' # Remove this line if you wish to publish to pub.dev
@@ -19,7 +19,7 @@ publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 version: 1.0.0+2
 
 environment:
-  sdk: ^3.12.2
+  sdk: ^3.12.1
 
 # Dependencies specify other packages that your package needs in order to work.
 # To automatically upgrade your package dependencies to the latest versions
@@ -34,9 +34,42 @@ dependencies:
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.8
-  # Tek kaynak: ARCONNECT reposundaki (~/Desktop/arconnect) ortak çekirdek
-  arcon_core:
-    path: packages/arcon_core
+  flutter_localizations:
+    sdk: flutter
+  agora_rtc_engine: ^6.6.4
+  audioplayers: ^6.8.1
+  cached_network_image: ^4.0.3
+  camera: ^0.11.2
+  emoji_picker_flutter: ^4.5.4
+  excel: ^4.0.6
+  file_picker: ^13.1.0
+  firebase_core: ^3.15.2
+  firebase_messaging: ^15.2.10
+  flutter_cache_manager: ^3.5.0
+  flutter_callkit_incoming: ^3.1.6
+  flutter_local_notifications: ^22.3.3
+  flutter_map: ^8.3.2
+  flutter_markdown_plus: ^1.0.12
+  flutter_secure_storage: ^11.2.0
+  flutter_svg: ^2.3.0
+  geocoding: ^5.0.1
+  geolocator: ^14.0.1
+  html: ^0.15.4
+  http: ^1.6.0
+  image_picker: ^1.2.4
+  latlong2: ^0.10.1
+  local_auth: ^3.0.2
+  open_filex: ^5.0.0
+  path_provider: ^2.1.6
+  permission_handler: ^12.0.1
+  photo_manager: ^3.12.0
+  record: ^7.1.2
+  share_plus: ^13.3.1
+  shared_preferences: ^2.5.6
+  url_launcher: ^6.3.3
+  video_player: ^2.9.5
+  wakelock_plus: ^1.4.0
+  webview_flutter: ^4.14.1
 
 dev_dependencies:
   flutter_test:
@@ -48,6 +81,16 @@ dev_dependencies:
   # package. See that file for information about deactivating specific lint
   # rules and activating additional ones.
   flutter_lints: ^6.0.0
+  flutter_launcher_icons: ^0.14.4
+  mocktail: ^1.0.5
+
+flutter_launcher_icons:
+  android: true
+  ios: true
+  image_path: assets/app_icon.png
+  adaptive_icon_background: "#000000"
+  adaptive_icon_foreground: assets/app_icon.png
+  remove_alpha_ios: true
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
@@ -59,6 +102,31 @@ flutter:
   # included with your application, so that you can use the icons in
   # the material Icons class.
   uses-material-design: true
+
+  assets:
+    - assets/arcon_logo.png
+    - assets/arcon_logo_dark.png
+    - assets/ringback.wav
+    - assets/splash_mark.png
+    - assets/arcon_club_wordmark.png
+
+  fonts:
+    # ARCON Club girişi: webin giriş sayfasıyla aynı yazı (değişken font, kalınlık fontVariations ile)
+    - family: DMSans
+      fonts:
+        - asset: assets/fonts/DMSans.ttf
+    - family: Poppins
+      fonts:
+        - asset: assets/fonts/Poppins-Regular.ttf
+          weight: 400
+        - asset: assets/fonts/Poppins-Medium.ttf
+          weight: 500
+        - asset: assets/fonts/Poppins-SemiBold.ttf
+          weight: 600
+        - asset: assets/fonts/Poppins-Bold.ttf
+          weight: 700
+        - asset: assets/fonts/Poppins-ExtraBold.ttf
+          weight: 800
 
   # To add assets to your application, add an assets section, like this:
   # assets:

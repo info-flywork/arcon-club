@@ -10,6 +10,7 @@ import UserNotifications
   ) -> Bool {
     // Yerel bildirimler uygulama açıkken de görünsün (flutter_local_notifications)
     UNUserNotificationCenter.current().delegate = self
+    WebViewInputAccessory.hide()
     return super.application(application, didFinishLaunchingWithOptions: launchOptions)
   }
 
