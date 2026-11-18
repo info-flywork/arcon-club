@@ -148,7 +148,7 @@ PODS:
     - Flutter
     - FlutterMacOS
   - PromisesObjC (2.4.1)
-  - record_ios (2.0.0):
+  - record_ios (1.2.1):
     - Flutter
   - share_plus (0.0.1):
     - Flutter
@@ -307,15 +307,15 @@ SPEC CHECKSUMS:
   permission_handler_apple: 92d754bbaa7361d436db2d6c3c1c2a0fdcec462e
   photo_manager: c303e4476f6c220274119f0212a7753e45edd4a2
   PromisesObjC: 752c3227f599e3467650e47ea36f433eeb10c273
-  record_ios: 390a30c7caaf8b5d0fb1cb1d2fd5064b48b4520c
+  record_ios: 980fd386a97a35987d0fce3dfda4b26a38c90f4c
   share_plus: eccd7beb7cea61271aeed1800e8ccb2b952c0c7f
   shared_preferences_foundation: 7036424c3d8ec98dfe75ff1667cb0cd531ec82bb
   sqflite_darwin: 20b2a3a3b70e43edae938624ce550a3cbf66a3d0
   url_launcher_ios: 7a95fa5b60cc718a708b8f2966718e93db0cef1b
   video_player_avfoundation: 3453f792138786248960ca029747fcd9f318ef52
-  wakelock_plus: d4ca1e4e4bc9de42cb55d57b5bdc158af318e3c6
+  wakelock_plus: e29112ab3ef0b318e58cfa5c32326458be66b556
   webview_flutter_wkwebview: 8ebf4fded22593026f7dbff1fbff31ea98573c8d
 
-PODFILE CHECKSUM: 3c63482e143d1b91d2d2560aee9fb04ecc74ac7e
+PODFILE CHECKSUM: 6a3e7f0189fd7a5e78fec5ccc3f9d3b82f9ef438
 
 COCOAPODS: 1.16.2

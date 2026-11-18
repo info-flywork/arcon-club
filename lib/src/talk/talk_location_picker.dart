@@ -19,7 +19,7 @@ String talkMapTiles(bool dark) =>
 TileLayer talkTileLayer(BuildContext context, bool dark) => TileLayer(
       urlTemplate: talkMapTiles(dark),
       retinaMode: RetinaMode.isHighDensity(context),
-      userAgentPackageName: 'net.arconai.arconnect',
+      userAgentPackageName: 'com.arcon.arconclub',
     );
 
 /// Yakındaki yer / arama sonucu (Photon, OpenStreetMap verisi; anahtar gerekmez)

@@ -21,7 +21,7 @@ flutter run
 | --- | --- |
 | `lib/main.dart` | Uygulamanın girişi (uygulama anahtarı `club`, başlık) |
 | `packages/arcon_core/` | Ortak çekirdek: giriş, modül menüsü, ARCONNECT (sohbet, arama), ARCON AI, bildirimler |
-| `android/`, `ios/` | Platform ayarları (paket kimliği `net.arconai.arconClub`) |
+| `android/`, `ios/` | Platform ayarları (paket kimliği `com.arcon.arconclub`) |
 
 ## Notlar
 

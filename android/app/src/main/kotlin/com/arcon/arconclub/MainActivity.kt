@@ -1,4 +1,4 @@
-package net.arconai.arcon_club
+package com.arcon.arconclub
 
 import io.flutter.embedding.android.FlutterFragmentActivity
 

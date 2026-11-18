@@ -5,7 +5,7 @@ plugins {
 }
 
 android {
-    namespace = "net.arconai.arcon_club"
+    namespace = "com.arcon.arconclub"
     compileSdk = flutter.compileSdkVersion
     ndkVersion = flutter.ndkVersion
 
@@ -17,7 +17,7 @@ android {
 
     defaultConfig {
         // TODO: Specify your own unique Application ID (https://developer.android.com/studio/build/application-id.html).
-        applicationId = "net.arconai.arcon_club"
+        applicationId = "com.arcon.arconclub"
         // You can update the following values to match your application needs.
         // For more information, see: https://flutter.dev/to/review-gradle-config.
         minSdk = flutter.minSdkVersion // flutter_secure_storage (Android Keystore)
