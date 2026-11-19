@@ -388,17 +388,8 @@ class ClubDashboardState extends State<ClubDashboard> {
             ],
           ),
           const SizedBox(height: 12),
-          Text.rich(
-            TextSpan(
-              children: [
-                // ARCONNECT tek kelime: ARCON ve NECT aynı renkte
-                TextSpan(
-                  text: f.key == 'arconnect' ? 'ARCON' : 'ARCON ',
-                  style: f.key == 'arconnect' ? null : TextStyle(color: c.muted),
-                ),
-                TextSpan(text: trUpper(f.name)),
-              ],
-            ),
+          Text(
+            f.key == 'arconnect' ? 'ARCON${trUpper(f.name)}' : 'ARCON ${trUpper(f.name)}',
             maxLines: 1,
             overflow: TextOverflow.ellipsis,
             style: c.text(13, weight: FontWeight.w800, spacing: 0.4),

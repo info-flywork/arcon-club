@@ -155,16 +155,6 @@ class _Splash extends StatefulWidget {
 
 class _SplashState extends State<_Splash> with SingleTickerProviderStateMixin {
   late final AnimationController _a = AnimationController(vsync: this, duration: const Duration(milliseconds: 1600))..repeat(reverse: true);
-  bool _showBar = false;
-
-  @override
-  void initState() {
-    super.initState();
-    // Oturum hemen açılırsa çizgi hiç görünmesin
-    Future.delayed(const Duration(milliseconds: 700), () {
-      if (mounted) setState(() => _showBar = true);
-    });
-  }
 
   @override
   void dispose() {
@@ -180,38 +170,57 @@ class _SplashState extends State<_Splash> with SingleTickerProviderStateMixin {
       child: Scaffold(
         backgroundColor: _Splash.bg,
         body: Stack(
-          alignment: Alignment.center,
+          fit: StackFit.expand,
           children: [
             // Üstten hafif ışık (giriş ekranındaki gibi)
-            Positioned.fill(
-              child: DecoratedBox(
-                decoration: BoxDecoration(
-                  gradient: RadialGradient(
-                    center: const Alignment(0, -0.9),
-                    radius: 1.1,
-                    colors: [const Color(0xFF3A4352).withValues(alpha: 0.35), _Splash.bg.withValues(alpha: 0)],
-                  ),
+            const DecoratedBox(
+              decoration: BoxDecoration(
+                gradient: RadialGradient(
+                  center: Alignment(0, -0.9),
+                  radius: 1.1,
+                  colors: [Color(0x593A4352), Color(0x00050608)],
                 ),
               ),
             ),
-            AnimatedBuilder(
-              animation: _a,
-              builder: (_, child) => Opacity(
-                opacity: reduce ? 1 : 0.82 + 0.18 * Curves.easeInOut.transform(_a.value),
-                child: child,
-              ),
-              child: Image.asset('assets/splash_mark.png', width: 120, semanticLabel: 'ARCON CLUB'),
-            ),
-            Align(
-              alignment: const Alignment(0, 0.22),
-              child: AnimatedOpacity(
-                opacity: _showBar ? 1 : 0,
-                duration: const Duration(milliseconds: 400),
-                child: SizedBox(
-                  width: 72,
-                  child: ClipRRect(
-                    borderRadius: BorderRadius.circular(99),
-                    child: const LinearProgressIndicator(minHeight: 2, color: Colors.white, backgroundColor: Color(0x1FFFFFFF)),
+            Center(
+              child: AnimatedBuilder(
+                animation: _a,
+                builder: (_, child) => Opacity(
+                  opacity: reduce ? 1 : 0.82 + 0.18 * Curves.easeInOut.transform(_a.value),
+                  child: child,
+                ),
+                child: Semantics(
+                  label: 'ARCON CLUB',
+                  child: Column(
+                    mainAxisSize: MainAxisSize.min,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Text(
+                        'ARCON',
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                          fontFamily: arconFontFamily,
+                          fontWeight: FontWeight.w800,
+                          fontSize: 28,
+                          color: Colors.white,
+                          letterSpacing: 2.4,
+                          height: 1.0,
+                        ),
+                      ),
+                      const SizedBox(height: 4),
+                      Text(
+                        'CLUB',
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                          fontFamily: arconFontFamily,
+                          fontWeight: FontWeight.w800,
+                          fontSize: 28,
+                          color: Colors.white,
+                          letterSpacing: 2.4,
+                          height: 1.0,
+                        ),
+                      ),
+                    ],
                   ),
                 ),
               ),
