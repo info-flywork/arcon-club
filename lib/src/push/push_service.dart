@@ -165,7 +165,7 @@ class PushService {
 
   /// iPhone VoIP (PushKit) belirtecini sunucuya kaydeder: kilit ekranında tam ekran arama için.
   static Future<void> registerVoip() async {
-    if (!Platform.isIOS) return;
+    if (!Platform.isIOS || !ArconCallkit.enabled) return;
     final s = _session;
     if (s == null || s.user == null) return;
     try {

@@ -9,6 +9,9 @@ import 'push_service.dart';
 class ArconCallkit {
   ArconCallkit._();
 
+  /// Kapalıysa (Club) hiçbir CallKit çağrısı yapılmaz; [ArconApp] uygulama ayarından ayarlar.
+  static bool enabled = true;
+
   static bool _listening = false;
   /// Kendi kapattığımız CallKit aramaları: "bitti" olayı aramayı reddetmesin.
   static final Set<int> _selfEnded = {};
@@ -31,7 +34,7 @@ class ArconCallkit {
   }
 
   static void listen() {
-    if (_listening) return;
+    if (!enabled || _listening) return;
     _listening = true;
     FlutterCallkitIncoming.onEvent.listen((event) {
       if (event == null) return;
@@ -68,6 +71,7 @@ class ArconCallkit {
     required bool video,
     String avatarUrl = '',
   }) async {
+    if (!enabled) return;
     listen();
     final name = callerName.trim().isEmpty ? 'ARCONNECT' : callerName.trim();
     await FlutterCallkitIncoming.showCallkitIncoming(CallKitParams(
@@ -112,6 +116,7 @@ class ArconCallkit {
 
   /// Kilit ekranında kabul edilmiş (uygulama sonra açılmış) arama varsa id'si.
   static Future<int?> acceptedCall() async {
+    if (!enabled) return null;
     try {
       for (final c in await FlutterCallkitIncoming.activeCalls()) {
         if (c.isAccepted) {
@@ -125,12 +130,14 @@ class ArconCallkit {
 
   /// Görüşme bağlandı: kilit ekranındaki CallKit "bağlanıyor"dan süreye geçer.
   static Future<void> connected(int callId) async {
+    if (!enabled) return;
     try {
       await FlutterCallkitIncoming.setCallConnected(uuidFor(callId));
     } catch (_) {}
   }
 
   static Future<void> end(int callId) async {
+    if (!enabled) return;
     _selfEnded.add(callId);
     try {
       await FlutterCallkitIncoming.endCall(uuidFor(callId));
@@ -138,6 +145,7 @@ class ArconCallkit {
   }
 
   static Future<void> requestAndroidLockScreen() async {
+    if (!enabled) return;
     try {
       await FlutterCallkitIncoming.requestNotificationPermission({
         'title': 'Bildirim izni',

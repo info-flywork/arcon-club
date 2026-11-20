@@ -10,6 +10,7 @@ void main() {
         appKey: 'club',
         title: 'ARCON CLUB',
         startModuleKey: null,
+        calls: false,
       ),
     ),
   );

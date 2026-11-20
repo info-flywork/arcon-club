@@ -4,12 +4,15 @@ import 'package:flutter/services.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 
 import '../api/api_client.dart';
+import '../api/models.dart';
 import '../auth/session_controller.dart';
 import '../auth/token_store.dart';
 import '../config.dart';
+import '../push/incoming_callkit.dart';
 import '../push/local_notifier.dart';
 import '../push/push_service.dart';
 import '../talk/talk_home_screen.dart';
+import 'external_app.dart';
 import 'home_screen.dart';
 import 'login_screen.dart';
 import 'theme.dart';
@@ -50,6 +53,7 @@ class _ArconAppState extends State<ArconApp> {
   @override
   void initState() {
     super.initState();
+    ArconCallkit.enabled = widget.config.calls;
     Future.delayed(_minSplash, () {
       if (mounted) setState(() => _splashMinDone = true);
     });
@@ -83,6 +87,11 @@ class _ArconAppState extends State<ArconApp> {
 
   /// Bildirime dokunuldu, ARCONNECT ekranı açık değil (Club) → ARCONNECT'i aç; sohbeti o açar.
   void _openTalkFromPush(int channelId) {
+    // Club: sohbet/arama ayrı ARCONNECT uygulamasında
+    if (!widget.config.calls) {
+      openExternalApp(ExternalApp.arconnect);
+      return;
+    }
     if (TalkHomeScreen.mounted > 0) return; // açık ekran kendisi açar
     final nav = _nav.currentState;
     if (nav == null || _session.status != SessionStatus.signedIn) return;

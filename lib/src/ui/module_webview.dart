@@ -365,12 +365,17 @@ class ModuleScreen extends StatefulWidget {
 
   /// Modül `native` işaretliyse ve uygulamada karşılığı varsa yerli ekranı, yoksa WebView'i açar.
   static Future<void> open(BuildContext context, ArconModule m, SessionController s, ArconAppConfig c) async {
-    // Ayrı mağaza uygulaması (Club'da ARCONNECT): yüklüyse onu, değilse mağazayı aç;
-    // mağaza bağlantısı yoksa (ör. Play'de henüz yok) modül uygulamanın içinde açılır
+    // Ayrı mağaza uygulaması (Club'da ARCONNECT): yüklüyse onu, değilse mağazayı aç
     final ext = m.external ?? (m.key == 'arconnect' ? ExternalApp.arconnect : null);
     if (ext != null && c.appKey != m.key) {
       final done = await openExternalApp(ext);
-      if (!done && context.mounted) await _openInApp(context, m, s, c);
+      if (done || !context.mounted) return;
+      // Club'da ARCONNECT uygulama içinde açılmaz (arama izinleri yalnızca ARCONNECT uygulamasında)
+      if (m.key == 'arconnect' && !c.calls) {
+        ScaffoldMessenger.maybeOf(context)?.showSnackBar(const SnackBar(content: Text('ARCONNECT uygulaması açılamadı. Mağazadan yükleyebilirsin.')));
+        return;
+      }
+      await _openInApp(context, m, s, c);
       return;
     }
     await _openInApp(context, m, s, c);

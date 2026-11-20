@@ -17,6 +17,7 @@ class ArconAppConfig {
     this.apiBase = defaultApiBase,
     this.nativeModules = const {},
     this.push = false,
+    this.calls = true,
   });
 
   /// Backend'deki uygulama anahtarı: `club` veya `arconnect`.
@@ -34,6 +35,10 @@ class ArconAppConfig {
   /// Uygulama kapalıyken bildirim (Firebase). Firebase dosyaları uygulamaya eklenmemişse
   /// başlatma sessizce başarısız olur, uygulama yerel bildirimlerle devam eder.
   final bool push;
+
+  /// Sesli/görüntülü arama (CallKit gelen arama ekranı) ve ARCONNECT'in uygulama içinde açılması.
+  /// Club'da kapalı: ARCONNECT ayrı uygulamada açılır, Club ön plan servis izni (arama/kamera/mikrofon) istemez.
+  final bool calls;
 
   /// Derlerken değiştirilebilir:
   /// `flutter run --dart-define=ARCON_API_BASE=http://127.0.0.1:8088/`
