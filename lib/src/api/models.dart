@@ -167,7 +167,7 @@ class ExternalApp {
     iosScheme: 'arconnect://',
     iosStoreUrl: 'https://apps.apple.com/app/id6829730899',
     androidScheme: 'arconnect://',
-    androidPackage: 'net.arconai.arconnect',
+    androidPackage: 'com.arcon.arconnect',
   );
 
   final String name;
